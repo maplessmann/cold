@@ -1,11 +1,19 @@
 {
   "name": "coold",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matheus Plessmann",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maplessmann/coold.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maplessmann/coold/issues"
+  },
+  "homepage": "https://github.com/maplessmann/coold#readme",
+  "description": ""
 }
