@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -14,9 +15,12 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
-          presets: ['@babel/preset-env']
+          presets: ['@babel/preset-env', '@babel/preset-react']
         }
       }
     ]
-  }
+  },
+  plugins: [new HtmlWebpackPlugin({
+    template: './src/core/template.html'
+  })]
 }
