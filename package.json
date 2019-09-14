@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --mode=development",
+    "build": "webpack --mode=production"
   },
   "author": "Matheus Plessmann",
   "license": "ISC",
@@ -15,5 +16,9 @@
     "url": "https://github.com/maplessmann/coold/issues"
   },
   "homepage": "https://github.com/maplessmann/coold#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  }
 }
