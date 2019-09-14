@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config=webpack/webpack.config.dev.js --watch",
+    "start": "webpack-dev-server --config=webpack/webpack.config.dev.js",
     "build": "webpack --config=webpack/webpack.config.prod.js"
   },
   "author": "Matheus Plessmann",
@@ -27,6 +27,7 @@
     "prettier": "^1.18.2",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0",
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
