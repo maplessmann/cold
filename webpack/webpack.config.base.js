@@ -1,12 +1,21 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const projectDir = path.resolve(process.cwd(), './')
 
 module.exports = {
   entry: './app/index.js',
   output: {
     path: path.join(__dirname, '../dist'),
     filename: 'app.bundle.js',
+  },
+  resolve: {
+    modules: [
+      path.resolve(projectDir, 'app/'),
+      path.resolve(projectDir, 'node_modules'),
+    ],
+    extensions: ['.js', '.jsx'],
+    symlinks: false,
   },
   module: {
     rules: [
@@ -43,7 +52,7 @@ module.exports = {
       template: './core/template.html',
     }),
     new webpack.ProvidePlugin({
-      React: 'react'
+      React: 'react',
     }),
   ],
 }

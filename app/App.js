@@ -1,8 +1,8 @@
 import { useState, lazy } from 'react'
 import { hot } from 'react-hot-loader'
-import Button from './components/Button'
-import DynamicLoad from './components/DynamicLoad'
-const Message = lazy(() => import(`./components/Message`))
+import Button from 'components/Button'
+import DynamicLoad from 'components/DynamicLoad'
+const Message = lazy(() => import(`components/Message`))
 
 const App = () => {
   const [isButtonClicked, setIsButtonClicked] = useState(false)
