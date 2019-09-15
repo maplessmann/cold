@@ -1,4 +1,4 @@
-import React, { useState, lazy } from 'react'
+import { useState, lazy } from 'react'
 import { hot } from 'react-hot-loader'
 import Button from './components/Button'
 import DynamicLoad from './components/DynamicLoad'
