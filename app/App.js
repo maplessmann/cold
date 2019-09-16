@@ -1,11 +1,14 @@
-import { hot } from 'react-hot-loader'
+import { hot } from 'react-hot-loader/root'
+import Header from 'components/Header'
+import Routes from './routes'
 
 const App = () => {
   return (
     <div className="app-layout">
-      <h1>❄️ Coold boilerplate!</h1>
+      <Header />
+      <Routes />
     </div>
   )
 }
 
-export default hot(module)(App)
+export default hot(App)
