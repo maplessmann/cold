@@ -1,15 +1,28 @@
+import { lazy, Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from 'pages/Home'
-import About from 'pages/About'
-import NotFound from 'pages/NotFound'
+import generateRoutes from 'utils/generateRoutes'
+
+const NotFound = lazy(() => import('./pages/NotFound'))
+
+const routes = [
+  {
+    path: '/',
+    component: 'Home',
+  },
+  {
+    path: '/about/',
+    component: 'About',
+  },
+]
 
 const Routes = () => {
   return (
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/about/" component={About} />
-      <Route component={NotFound} />
-    </Switch>
+    <Suspense fallback={null}>
+      <Switch>
+        {generateRoutes(routes)}
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
   )
 }
 
