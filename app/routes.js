@@ -1,8 +1,10 @@
-import { lazy, Suspense } from 'react'
+import loadable from '@loadable/component'
 import { Switch, Route } from 'react-router-dom'
 import generateRoutes from 'utils/generateRoutes'
 
-const NotFound = lazy(() => import('./pages/NotFound'))
+const NotFound = loadable(() =>
+  import('./pages/NotFound' /* webpackChunkName: 'NotFound' */)
+)
 
 const routes = [
   {
@@ -17,12 +19,10 @@ const routes = [
 
 const Routes = () => {
   return (
-    <Suspense fallback={null}>
-      <Switch>
-        {generateRoutes(routes)}
-        <Route component={NotFound} />
-      </Switch>
-    </Suspense>
+    <Switch>
+      {generateRoutes(routes)}
+      <Route component={NotFound} />
+    </Switch>
   )
 }
 

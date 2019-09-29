@@ -1,9 +1,9 @@
-import { lazy } from 'react'
+import loadable from '@loadable/component'
 import { Route } from 'react-router-dom'
 
 const generateRoutes = routes => {
   return routes.map(({ path, component }, index) => {
-    const AsyncComponent = lazy(() =>
+    const AsyncComponent = loadable(() =>
       import(`pages/${component}` /* webpackChunkName: 'Route' */)
     )
 
