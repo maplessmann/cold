@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom'
 const generateRoutes = routes => {
   return routes.map(({ path, component }, index) => {
     const AsyncComponent = loadable(() =>
-      import(`pages/${component}` /* webpackChunkName: 'Route' */)
+      import(`pages/${component}` /* webpackChunkName: "[request]" */)
     )
 
     return (
