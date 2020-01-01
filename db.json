@@ -1,0 +1,7 @@
+{
+  "todos": [
+    {"id": 1, "label": "Init boilerplate", "isComplete": true},
+    {"id": 2, "label": "Config webpack", "isComplete": true},
+    {"id": 3, "label": "Complete boilerplate", "isComplete": false}
+  ]
+}

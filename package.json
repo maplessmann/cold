@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack-dev-server --config=webpack/webpack.config.dev.js",
     "start:hot": "npm run start -- --hot",
-    "build": "webpack --config=webpack/webpack.config.prod.js"
+    "build": "webpack --config=webpack/webpack.config.prod.js",
+    "dev-server": "json-server -p 9001 db.json"
   },
   "author": "Matheus Plessmann",
   "license": "ISC",
@@ -38,6 +39,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.6.0",
     "@loadable/component": "^5.10.3",
+    "json-server": "^0.15.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
