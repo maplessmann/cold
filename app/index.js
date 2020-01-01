@@ -5,11 +5,16 @@ import '@babel/polyfill'
 import App from './App'
 import store from './store'
 
-const state = store.getState()
+const renderApp = () => {
+  const state = store.getState()
+  ReactDOM.render(
+    <BrowserRouter>
+      <App state={state} />
+    </BrowserRouter>,
+    document.getElementById('react-view')
+  )
+}
 
-ReactDOM.render(
-  <BrowserRouter>
-    <App state={state} />
-  </BrowserRouter>,
-  document.getElementById('react-view')
-)
+renderApp()
+
+store.subscribe(renderApp)
