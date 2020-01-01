@@ -1,9 +1,24 @@
 const INITIAL_STATE = {
   tasks: [
-    { name: 'Init boilerplate', id: 1, isComplete: true },
-    { name: 'Config webpack', id: 2, isComplete: true },
-    { name: 'Complete boilerplate', id: 3, isComplete: false },
+    { label: 'Init boilerplate', id: 1, isComplete: true },
+    { label: 'Config webpack', id: 2, isComplete: true },
+    { label: 'Complete boilerplate', id: 3, isComplete: false },
   ],
+  currentTodo: '',
+}
+
+export const addTodo = payload => {
+  return {
+    type: 'TODO_ADD',
+    payload,
+  }
+}
+
+export const updateCurrentTodo = payload => {
+  return {
+    type: 'CURRENT_UPDATE',
+    payload,
+  }
 }
 
 const todoReducer = (state = INITIAL_STATE, action) => {
@@ -14,6 +29,11 @@ const todoReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         tasks: [...state.tasks, payload],
+      }
+    case 'CURRENT_UPDATE':
+      return {
+        ...state,
+        currentTodo: payload,
       }
     default:
       return state

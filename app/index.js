@@ -1,20 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store'
 import '@babel/polyfill'
 import App from './App'
-import store from './store'
 
-const renderApp = () => {
-  const state = store.getState()
-  ReactDOM.render(
-    <BrowserRouter>
-      <App state={state} />
-    </BrowserRouter>,
-    document.getElementById('react-view')
-  )
-}
-
-renderApp()
-
-store.subscribe(renderApp)
+ReactDOM.render(
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById('react-view')
+)
