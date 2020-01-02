@@ -1,35 +1,25 @@
-// import { useState } from 'react'
-import { connect } from 'react-redux'
-import { addTodo, removeTodo, updateCurrentTodo } from 'ducks/todo'
+import TodoListEnhancer from 'enhancers/TodoList'
 
-const TodoList = ({ state, addTodo, removeTodo, updateCurrentTodo }) => {
-  const { tasks, currentTodo } = state
-
-  const onInputChange = e => {
-    const value = e.target.value
-    updateCurrentTodo(value)
-  }
-
-  const onFormSubmit = e => {
-    e.preventDefault()
-
-    addTodo({
-      label: currentTodo,
-      id: tasks.length + 1,
-      isComplete: false,
-    })
-  }
-
+const TodoList = ({
+  state,
+  tasks,
+  currentTodo,
+  updateCurrentTodo,
+  addTodo,
+  removeTodo,
+  onInputChange,
+  onFormSubmit,
+}) => {
   console.log({ state })
 
   return (
     <div>
-      <form onSubmit={onFormSubmit}>
+      <form onSubmit={onFormSubmit({ addTodo, currentTodo, tasks })}>
         <input
           id="form-todo"
           type="text"
           value={currentTodo}
-          onChange={onInputChange}
+          onChange={onInputChange({ updateCurrentTodo })}
         />
         <button>Add</button>
       </form>
@@ -48,13 +38,4 @@ const TodoList = ({ state, addTodo, removeTodo, updateCurrentTodo }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  state,
-})
-
-const mapDispatchToProps = { addTodo, removeTodo, updateCurrentTodo }
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoList)
+export default TodoListEnhancer(TodoList)
