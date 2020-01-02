@@ -14,6 +14,13 @@ export const addTodo = payload => {
   }
 }
 
+export const removeTodo = payload => {
+  return {
+    type: 'TODO_REMOVE',
+    payload,
+  }
+}
+
 export const updateCurrentTodo = payload => {
   return {
     type: 'CURRENT_UPDATE',
@@ -29,6 +36,11 @@ const todoReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         tasks: [...state.tasks, payload],
+      }
+    case 'TODO_REMOVE':
+      return {
+        ...state,
+        tasks: state.tasks.filter(({ id }) => id !== payload)
       }
     case 'CURRENT_UPDATE':
       return {

@@ -1,8 +1,8 @@
 // import { useState } from 'react'
 import { connect } from 'react-redux'
-import { updateCurrentTodo } from 'ducks/todo'
+import { addTodo, removeTodo, updateCurrentTodo } from 'ducks/todo'
 
-const TodoList = ({ state, updateCurrentTodo }) => {
+const TodoList = ({ state, addTodo, removeTodo, updateCurrentTodo }) => {
   const { tasks, currentTodo } = state
 
   const onInputChange = e => {
@@ -10,11 +10,21 @@ const TodoList = ({ state, updateCurrentTodo }) => {
     updateCurrentTodo(value)
   }
 
+  const onFormSubmit = e => {
+    e.preventDefault()
+
+    addTodo({
+      label: currentTodo,
+      id: tasks.length + 1,
+      isComplete: false,
+    })
+  }
+
   console.log({ state })
 
   return (
     <div>
-      <form>
+      <form onSubmit={onFormSubmit}>
         <input
           id="form-todo"
           type="text"
@@ -24,11 +34,11 @@ const TodoList = ({ state, updateCurrentTodo }) => {
         <button>Add</button>
       </form>
       <ul className="todo-list">
-        {tasks.map(({ label, isComplete }, index) => (
+        {tasks.map(({ label, isComplete, id }, index) => (
           <li className="todo-item" key={index}>
             <input type="checkbox" defaultChecked={isComplete} />
             {label}{' '}
-            <button type="button" onClick={() => removeTodo(index)}>
+            <button type="button" onClick={() => removeTodo(id)}>
               Remove
             </button>
           </li>
@@ -42,7 +52,7 @@ const mapStateToProps = state => ({
   state,
 })
 
-const mapDispatchToProps = { updateCurrentTodo }
+const mapDispatchToProps = { addTodo, removeTodo, updateCurrentTodo }
 
 export default connect(
   mapStateToProps,
