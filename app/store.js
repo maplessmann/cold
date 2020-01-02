@@ -1,4 +1,5 @@
 import { createStore } from 'redux'
-import todoReducer from 'ducks/todo'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import reducers from 'ducks'
 
-export default createStore(todoReducer)
+export default createStore(reducers, composeWithDevTools())
