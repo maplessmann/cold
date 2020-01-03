@@ -4,8 +4,6 @@ const TodoList = ({
   state,
   tasks,
   currentTodo,
-  updateCurrentTodo,
-  addTodo,
   removeTodo,
   onInputChange,
   onFormSubmit,
@@ -14,12 +12,12 @@ const TodoList = ({
 
   return (
     <div>
-      <form onSubmit={onFormSubmit({ addTodo, currentTodo, tasks })}>
+      <form onSubmit={onFormSubmit}>
         <input
           id="form-todo"
           type="text"
           value={currentTodo}
-          onChange={onInputChange({ updateCurrentTodo })}
+          onChange={onInputChange}
         />
         <button>Add</button>
       </form>

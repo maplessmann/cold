@@ -1,10 +1,10 @@
-const handlers = () => ({
-  onInputChange: ({ updateCurrentTodo }) => e => {
+const handlers = ({ updateCurrentTodo, addTodo, currentTodo, tasks }) => ({
+  onInputChange: e => {
     const value = e.target.value
     updateCurrentTodo(value)
   },
 
-  onFormSubmit: ({ addTodo, currentTodo, tasks }) => e => {
+  onFormSubmit: e => {
     e.preventDefault()
 
     addTodo({
