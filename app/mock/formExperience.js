@@ -1,3 +1,9 @@
+import * as yup from 'yup'
+import Field from 'components/Form/Fields/Field'
+import Email from 'components/Form/Fields/Email'
+import Phone from 'components/Form/Fields/Phone'
+import Cpf from 'components/Form/Fields/Cpf'
+
 export default {
   steps: [
     {
@@ -7,21 +13,23 @@ export default {
       fields: [
         {
           name: 'name',
-          type: 'text',
           label: 'Name',
-          component: '',
+          component: Field,
         },
         {
           name: 'email',
-          type: 'email',
           label: 'Email',
-          component: '',
+          component: Email,
         },
         {
           name: 'phone',
-          type: 'text',
           label: 'Phone',
-          component: '',
+          component: Phone,
+        },
+        {
+          name: 'cpf',
+          label: 'CPF',
+          component: Cpf,
         },
       ],
     },

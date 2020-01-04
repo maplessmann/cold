@@ -4,6 +4,8 @@ import * as yup from 'yup'
 const initialValues = {
   name: 'Matheus',
   email: '',
+  phone: '',
+  cpf: '',
 }
 
 const validations = yup.object().shape({
