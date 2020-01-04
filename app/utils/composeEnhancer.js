@@ -1,4 +1,4 @@
-const composeEnhancer = (...layers) => Component => {
+const composeEnhancer = (...layers) => BaseComponent => {
   return () => {
     const props = layers.reduce((prevProps, layer) => {
       const layerProps = layer.call(null, prevProps)
@@ -9,7 +9,7 @@ const composeEnhancer = (...layers) => Component => {
       }
     }, {})
 
-    return <Component {...props} />
+    return <BaseComponent {...props} />
   }
 }
 

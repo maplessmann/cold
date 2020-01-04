@@ -1,15 +1,12 @@
 import TodoListEnhancer from 'enhancers/TodoList'
 
 const TodoList = ({
-  state,
   tasks,
   currentTodo,
   removeTodo,
   onInputChange,
   onFormSubmit,
 }) => {
-  console.log({ state })
-
   return (
     <div>
       <form onSubmit={onFormSubmit}>
