@@ -1,6 +1,10 @@
 import formExperience from 'mock/formExperience'
 import * as yup from 'yup'
 
+const steps = formExperience.steps
+const currentStep = 0
+const currentStepFields = steps[currentStep].fields
+
 const initialValues = {
   name: 'Matheus',
   email: '',
@@ -20,7 +24,8 @@ const propsMapper = () => {
   return {
     initialValues,
     validations,
-    steps: formExperience.steps,
+    currentStep,
+    currentStepFields,
   }
 }
 

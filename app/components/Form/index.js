@@ -1,7 +1,12 @@
 import FormEnhancer from 'enhancers/Form'
 import { Formik, Form as FormikForm } from 'formik'
 
-const Form = ({ initialValues, handleSubmit, validations, steps }) => {
+const Form = ({
+  initialValues,
+  handleSubmit,
+  validations,
+  currentStepFields,
+}) => {
   return (
     <Formik
       initialValues={initialValues}
@@ -10,9 +15,11 @@ const Form = ({ initialValues, handleSubmit, validations, steps }) => {
     >
       {({ isSubmitting }) => (
         <FormikForm className="form">
-          {steps[0].fields.map(({ component: Component, ...props }, index) => (
-            <Component key={index} {...props} />
-          ))}
+          {currentStepFields.map(
+            ({ component: Component, ...props }, index) => (
+              <Component key={index} {...props} />
+            )
+          )}
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>
