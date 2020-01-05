@@ -1,3 +1,4 @@
+import { withProps } from 'utils/enhancer'
 import formExperience from 'mock/formExperience'
 import * as yup from 'yup'
 
@@ -20,13 +21,13 @@ const validations = yup.object().shape({
     .required(),
 })
 
-const propsMapper = () => {
+const propsMapper = withProps(() => {
   return {
     initialValues,
     validations,
     currentStep,
     currentStepFields,
   }
-}
+})
 
 export default propsMapper
