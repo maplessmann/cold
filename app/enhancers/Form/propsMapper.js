@@ -1,4 +1,3 @@
-import { withProps } from 'utils/enhancer'
 import * as yup from 'yup'
 
 const initialValues = {
@@ -6,6 +5,10 @@ const initialValues = {
   email: '',
   phone: '',
   cpf: '',
+  postal_code: '',
+  street: '',
+  state: '',
+  city: '',
 }
 
 const validations = yup.object().shape({
@@ -16,11 +19,11 @@ const validations = yup.object().shape({
     .required(),
 })
 
-const propsMapper = withProps(() => {
+const propsMapper = () => {
   return {
     initialValues,
     validations,
   }
-})
+}
 
 export default propsMapper

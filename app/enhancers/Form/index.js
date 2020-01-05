@@ -1,13 +1,8 @@
-import { compose } from 'utils/enhancer'
-import { withRouter } from 'react-router'
+import composeEnhancer from 'utils/composeEnhancer'
 
+import state from './state'
 import data from './data'
 import handlers from './handlers'
 import propsMapper from './propsMapper'
 
-export default compose(
-  withRouter,
-  data,
-  handlers,
-  propsMapper
-)
+export default composeEnhancer(state, data, handlers, propsMapper)

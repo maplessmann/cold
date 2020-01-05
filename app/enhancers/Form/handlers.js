@@ -1,8 +1,10 @@
-import { withHandlers } from 'utils/enhancer'
-
-const handlers = withHandlers({
-  handleSubmit: () => payload => {
+const handlers = ({ isLastStep, currentStep, setCurrentStep }) => ({
+  handleSubmit: payload => {
     console.log('Form submitted!', payload)
+
+    if (!isLastStep) {
+      setCurrentStep(currentStep + 1)
+    }
   },
 })
 
