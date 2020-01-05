@@ -1,11 +1,14 @@
 import FormEnhancer from 'enhancers/Form'
 import { Formik, Form as FormikForm } from 'formik'
+import FormNavigation from './Navigation'
 
 const Form = ({
   initialValues,
   handleSubmit,
   validations,
   currentStepFields,
+  nextButtonText,
+  handlePrevButton,
 }) => {
   return (
     <Formik
@@ -20,9 +23,11 @@ const Form = ({
               <Component key={index} {...props} />
             )
           )}
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
+          <FormNavigation
+            isSubmitting={isSubmitting}
+            nextButtonText={nextButtonText}
+            handlePrevButton={handlePrevButton}
+          />
         </FormikForm>
       )}
     </Formik>

@@ -4,10 +4,12 @@ const data = ({ currentStep }) => {
   const steps = formExperience.steps
   const currentStepFields = steps[currentStep].fields
   const isLastStep = steps.length === currentStep + 1
+  const nextButtonText = isLastStep ? 'Submit': 'Next'
 
   return {
     currentStepFields,
     isLastStep,
+    nextButtonText,
   }
 }
 
