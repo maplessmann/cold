@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '../dist'),
     filename: 'bundle.[name].[hash].js',
-    publicPath: '/'
+    publicPath: '/',
   },
   resolve: {
     modules: [
@@ -44,6 +44,11 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
         exclude: /node_modules/,
       },
     ],
