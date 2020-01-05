@@ -33,5 +33,32 @@ export default {
         },
       ],
     },
+    {
+      header: {
+        title: 'Second step',
+      },
+      fields: [
+        {
+          name: 'postal_code',
+          label: 'Postal code',
+          component: Field,
+        },
+        {
+          name: 'street',
+          label: 'Street',
+          component: Field,
+        },
+        {
+          name: 'state',
+          label: 'State',
+          component: Field,
+        },
+        {
+          name: 'city',
+          label: 'City',
+          component: Field,
+        },
+      ],
+    },
   ],
 }
