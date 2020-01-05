@@ -7,6 +7,7 @@ const data = ({ currentStep }) => {
   const nextButtonText = isLastStep ? 'Submit': 'Next'
 
   return {
+    formExperience,
     currentStepFields,
     isLastStep,
     nextButtonText,

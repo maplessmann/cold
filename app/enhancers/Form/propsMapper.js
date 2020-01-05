@@ -1,28 +1,13 @@
 import * as yup from 'yup'
+import { getFieldData } from './helpers'
 
-const initialValues = {
-  name: 'Matheus',
-  email: '',
-  phone: '',
-  cpf: '',
-  postal_code: '',
-  street: '',
-  state: '',
-  city: '',
-}
+const propsMapper = ({ formExperience }) => {
+  const initialValues = getFieldData('initialValue', formExperience)
+  const validators = getFieldData('validator', formExperience)
 
-const validations = yup.object().shape({
-  name: yup.string().required(),
-  email: yup
-    .string()
-    .email()
-    .required(),
-})
-
-const propsMapper = () => {
   return {
     initialValues,
-    validations,
+    validations: yup.object().shape(validators),
   }
 }
 
