@@ -9,6 +9,7 @@ const Form = ({
   currentStepFields,
   nextButtonText,
   handlePrevButton,
+  currentStepTitle,
 }) => {
   return (
     <Formik
@@ -18,6 +19,7 @@ const Form = ({
     >
       {({ isSubmitting }) => (
         <FormikForm className="form">
+          <h1 className="form-title">{currentStepTitle}</h1>
           {currentStepFields.map(
             ({ component: Component, ...props }, index) => (
               <Component key={index} {...props} />
