@@ -1,6 +1,9 @@
 import { pipe, prop, map, flatten, reduce } from 'ramda'
 
-export const getFieldData = (key, experience) => {
+export const getFieldData = (key, experience, step) => {
+  const flattenData = fields =>
+    typeof step === 'number' ? fields[step] : flatten(fields)
+
   const toFieldData = (prevData, field) => {
     const fieldName = prop('name', field)
     const metadata = prop(key, field)
@@ -14,7 +17,7 @@ export const getFieldData = (key, experience) => {
   return pipe(
     prop('steps'),
     map(prop('fields')),
-    flatten,
+    flattenData,
     reduce(toFieldData, {})
   )(experience)
 }
