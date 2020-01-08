@@ -3,6 +3,7 @@ import Field from 'components/Form/Fields/Field'
 import Email from 'components/Form/Fields/Email'
 import Phone from 'components/Form/Fields/Phone'
 import Cpf from 'components/Form/Fields/Cpf'
+import RadioGroup from 'components/Form/Fields/RadioGroup'
 
 export default {
   steps: [
@@ -76,6 +77,27 @@ export default {
           component: Field,
           initialValue: '',
           validator: null,
+        },
+        {
+          name: 'gender',
+          label: 'Gender',
+          component: RadioGroup,
+          initialValue: '',
+          validator: null,
+          options: [
+            {
+              label: 'Male',
+              value: 'male',
+            },
+            {
+              label: 'Female',
+              value: 'female',
+            },
+            {
+              label: 'Other',
+              value: 'other',
+            },
+          ]
         },
       ],
     },
