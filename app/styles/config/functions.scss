@@ -1,0 +1,9 @@
+@function toRem($size) {
+  $rem-size: $size / $base-font-size;
+
+  @return #{$rem-size}rem;
+}
+
+@function spacing($size) {
+  @return $size * $base-layout-margin;
+}

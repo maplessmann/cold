@@ -2,6 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const projectDir = path.resolve(process.cwd(), './')
+const globImporter = require('node-sass-glob-importer')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: './app/index.js',
@@ -48,7 +50,22 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                importer: globImporter(),
+              },
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
     ],
@@ -59,6 +76,9 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       React: 'react',
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
     }),
   ],
 }

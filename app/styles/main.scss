@@ -1,1 +1,5 @@
-@import './base/reset'
+@import './base/*';
+
+@import './config/*';
+
+@import '../components/**/*.scss';
