@@ -1,5 +1,5 @@
 {
-  "name": "coold",
+  "name": "cold",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -12,12 +12,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maplessmann/coold.git"
+    "url": "git+https://github.com/maplessmann/cold.git"
   },
   "bugs": {
-    "url": "https://github.com/maplessmann/coold/issues"
+    "url": "https://github.com/maplessmann/cold/issues"
   },
-  "homepage": "https://github.com/maplessmann/coold#readme",
+  "homepage": "https://github.com/maplessmann/cold#readme",
   "description": "",
   "devDependencies": {
     "@babel/cli": "^7.6.0",
